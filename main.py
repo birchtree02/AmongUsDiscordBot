@@ -10,7 +10,8 @@ with open("token.txt", "r") as file:
 
 with open("authenticated_users.txt", "r") as file:
     authenticated_users = file.readlines()
-    print(authenticated_users)
+    for (i, user) in enumerate(authenticated_users):
+        authenticated_users[i] = int(user)
 
 @bot.event
 async def on_ready():
