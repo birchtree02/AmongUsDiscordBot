@@ -1,7 +1,7 @@
 import discord
 from discord.ext import commands
 
-cogs = []
+cogs = ["cogs.channel-management"]
 
 intents = discord.Intents.default()
 intents.voice_states = True
