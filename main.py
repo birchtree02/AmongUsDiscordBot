@@ -3,7 +3,10 @@ from discord.ext import commands
 
 cogs = []
 
-bot = commands.Bot(command_prefix='!')
+intents = discord.Intents.default()
+intents.voice_states = True
+
+bot = commands.Bot(command_prefix='!', intents=intents)
 
 with open("token.txt", "r") as file:
     TOKEN = file.read()
