@@ -16,6 +16,7 @@ with open("authenticated_users.txt", "r") as file:
     for (i, user) in enumerate(authenticated_users):
         authenticated_users[i] = int(user)
 
+
 @bot.event
 async def on_ready():
     print(f'\n\nLogged in as: {bot.user.name} - {bot.user.id}\nVersion: {discord.__version__}\n')
@@ -23,7 +24,7 @@ async def on_ready():
 
 @bot.command(hidden=True)
 async def reload(ctx, cog):
-    if ctx.author.id in authenticated_users:    
+    if ctx.author.id in authenticated_users:
         try:
             bot.reload_extension(f"cogs.{cog}")
             return await ctx.send(f"{cog} successfully reloaded")

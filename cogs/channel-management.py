@@ -7,7 +7,6 @@ class ChannelManagementCog(commands.Cog):
         self.bot = bot
         self.dead_players = []
 
-
     # Moves all members from the author's voice channel to the given voice channel
     @commands.command(name='moveall', aliases=['ma'])
     async def move_all(self, ctx, *args):
@@ -33,7 +32,7 @@ class ChannelManagementCog(commands.Cog):
                 else:
                     await self.send(ctx, f"Channel {target_channel} was not found.")
         else:
-            await self.send(ctx, f"This is not allowed. You are not in a voice channel.")
+            await self.send(ctx, "This is not allowed. You are not in a voice channel.")
 
     async def send(self, ctx, msg):
         await ctx.send(msg)
