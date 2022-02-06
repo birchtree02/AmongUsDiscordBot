@@ -5,6 +5,7 @@ cogs = ["cogs.channel-management"]
 
 intents = discord.Intents.default()
 intents.voice_states = True
+intents.members = True
 
 bot = commands.Bot(command_prefix='!', intents=intents)
 
@@ -27,6 +28,7 @@ async def reload(ctx, cog):
     if ctx.author.id in authenticated_users:
         try:
             bot.reload_extension(f"cogs.{cog}")
+            print(f"\nRELOADED {cog}.\n")
             return await ctx.send(f"{cog} successfully reloaded")
         except Exception as e:
             return await ctx.send(e)
